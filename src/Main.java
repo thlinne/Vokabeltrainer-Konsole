@@ -7,11 +7,9 @@ public class Main {
         Vokabel v1 = new Vokabel("Hund", "dog");
         Vokabel v2 = new Vokabel("Katze", "cat");
 
-        Vokabel[] vokabeln = new Vokabel[10];
-        vokabeln[0] = v1;
-        vokabeln[1] = v2;
-
-        int index = 2;
+        Vokabelliste vl = new Vokabelliste();
+        vl.addVokabel(v1);
+        vl.addVokabel(v2);
 
         System.out.println("Willkommen zum Vokabeltrainer!");
         System.out.println("Neue Vokabel (n), neues Training (t), Beenden (x)");
@@ -25,7 +23,11 @@ public class Main {
         while(!eingabe.equals("x")) {
 
             if (eingabe.equals("t")) {
-                for (int i = 0; i <= index - 1; i++) {
+
+                Vokabel[] vokabeln = vl.getVokabeln();
+
+
+                for (int i = 0; i <= vokabeln.length - 1; i++) {
                     Vokabel v = vokabeln[i];
                     trainiereVokabel(v);
                 }
@@ -33,18 +35,14 @@ public class Main {
 
             if (eingabe.equals("n")) {
 
-                if (index < vokabeln.length) {
+                System.out.println("Vokabel deutsch:");
+                String vd = sc.next();
 
-                    System.out.println("Vokabel deutsch:");
-                    String vd = sc.next();
+                System.out.println("Vokabel englisch:");
+                String ve = sc.next();
 
-                    System.out.println("Vokabel englisch:");
-                    String ve = sc.next();
-
-                    Vokabel v = new Vokabel(vd, ve);
-                    vokabeln[index] = v;
-                    index++;
-                }
+                Vokabel v = new Vokabel(vd, ve);
+                vl.addVokabel(v);
             }
             System.out.println("Neue Vokabel (n), neues Training (t), Beenden (x)");
             eingabe = sc.next();
