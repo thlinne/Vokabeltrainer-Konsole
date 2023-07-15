@@ -1,10 +1,10 @@
 public class Vokabelliste {
 
-    private Vokabel[] vokabeln = new Vokabel[10];
+    private int size = 10;
+    private Vokabel[] vokabeln = new Vokabel[size];
     private int index = 0;
 
     public void addVokabel(Vokabel v){
-
         if (index == vokabeln.length) {
             this.reseizeArray();
         }
@@ -13,9 +13,7 @@ public class Vokabelliste {
     }
 
     public Vokabel[] getVokabeln(){
-
         Vokabel[] kopie = new Vokabel[index];
-
         for ( int i=0; i<=index-1; i++){
             kopie[i] = vokabeln[i];
         }
@@ -23,7 +21,8 @@ public class Vokabelliste {
     }
 
     private void reseizeArray(){
-        Vokabel[] vn = new Vokabel[vokabeln.length+10];
+        size += 10;
+        Vokabel[] vn = new Vokabel[size];
 
         for (int i=0; i<= vokabeln.length-1; i++){
             vn[i] = vokabeln[i];

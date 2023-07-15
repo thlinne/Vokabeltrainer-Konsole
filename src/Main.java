@@ -12,7 +12,7 @@ public class Main {
         vl.addVokabel(v2);
 
         System.out.println("Willkommen zum Vokabeltrainer!");
-        System.out.println("Neue Vokabel (n), neues Training (t), Beenden (x)");
+        System.out.println("Neue Vokabel (n), neues Training (t), Statistik (s), Beenden (x)");
 
         String eingabe;
 
@@ -25,7 +25,6 @@ public class Main {
             if (eingabe.equals("t")) {
 
                 Vokabel[] vokabeln = vl.getVokabeln();
-
 
                 for (int i = 0; i <= vokabeln.length - 1; i++) {
                     Vokabel v = vokabeln[i];
@@ -44,7 +43,16 @@ public class Main {
                 Vokabel v = new Vokabel(vd, ve);
                 vl.addVokabel(v);
             }
-            System.out.println("Neue Vokabel (n), neues Training (t), Beenden (x)");
+
+            if(eingabe.equals("s")){
+                Vokabel[] vokabeln = vl.getVokabeln();
+                for (int i = 0; i <= vokabeln.length - 1; i++) {
+                    Vokabel v = vokabeln[i];
+                    System.out.println(v.getVokabelDeutsch() + " - " + v.getVokabelEnglisch() + " - " + v.getErfolgsquote() );
+                }
+            }
+
+            System.out.println("Neue Vokabel (n), neues Training (t), Statistik (s), Beenden (x)");
             eingabe = sc.next();
         }
         System.out.println("Sie haben so viele Runden trainiert: " + v1.getErfolgsquote());
