@@ -1,5 +1,7 @@
 public class Vokabel {
 
+    private VokabelStatistik vokabelStatistik = new VokabelStatistik();
+
     public Vokabel(String vokabel_deutsch, String vokabel_englisch){
         this.vokabel_deutsch = vokabel_deutsch;
         this.vokabel_englisch = vokabel_englisch;
@@ -13,23 +15,17 @@ public class Vokabel {
         return this.vokabel_englisch;
     }
 
+    private String vokabel_deutsch;
+    private String vokabel_englisch;
+
+
     public  void updateTraining(boolean erfolg){
-        if (erfolg) {
-            this.anzahl_erfolgreich++;
-        }
-        this.anzahl_trainings++;
+        vokabelStatistik.updateTraining(erfolg);
     }
 
     public double getErfolgsquote(){
-        if (this.anzahl_trainings > 0) {
-            return (double) this.anzahl_erfolgreich / (double) this.anzahl_trainings;
-        }else{
-            return 0.0;
-        }
+        return vokabelStatistik.getErfolgsquote();
     }
 
-    private String vokabel_deutsch;
-    private String vokabel_englisch;
-    private int anzahl_trainings = 0;
-    private int anzahl_erfolgreich = 0;
+
 }
