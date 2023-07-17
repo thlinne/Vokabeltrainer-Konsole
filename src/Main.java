@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//todo abcd
 public class Main {
 
     public static void main(String[] args) {
@@ -24,12 +24,26 @@ public class Main {
 
             if (eingabe.equals("t")) {
 
+                System.out.println("Trainingsmodus: Einprägen (1), Abfragen (2), Einprägen teils verdeckt (3)");
+                int modus = Integer.parseInt(sc.next());
+
                 Vokabel[] vokabeln = vl.getVokabeln();
 
-                for (int i = 0; i <= vokabeln.length - 1; i++) {
-                    Vokabel v = vokabeln[i];
-                    trainiereVokabel(v);
+                if (modus == 1){
+                    TrainingstypLernen t = new TrainingstypLernen();
+                    t.trainiere(vokabeln);
                 }
+
+                if(modus == 2){
+                    TrainingstypAbfragen t = new TrainingstypAbfragen();
+                    t.trainiere(vokabeln);
+                }
+
+                if (modus == 3){
+                    TrainingstypBuchstaben t = new TrainingstypBuchstaben();
+                    t.trainiere(vokabeln);
+                }
+
             }
 
             if (eingabe.equals("n")) {
@@ -58,24 +72,4 @@ public class Main {
         System.out.println("Sie haben so viele Runden trainiert: " + v1.getErfolgsquote());
     }
 
-    private static void trainiereVokabel(Vokabel v){
-        Scanner sc = new Scanner(System.in);
-        v.updateAnzahlTrainings();
-
-        System.out.println(v.getVokabelDeutsch());
-        System.out.println("Gib die Übersetzung ein:");
-        String uebersetzung = sc.next();
-
-        if(uebersetzung.equals(v.getVokabelEnglisch())){
-            v.updateAnzahlErfolgreich();
-            System.out.println("Das ist richtig");
-        }else {
-            System.out.println("Das ist falsch!");
-            System.out.println("Möchten Sie die richtige Lösung sehen? (ja/nein)");
-            String loesung_sehen = sc.next();
-            if (loesung_sehen.equals("ja")) {
-                System.out.println("Korrekte Loesung: " + v.getVokabelEnglisch());
-            }
-        }
-    }
 }
