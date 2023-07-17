@@ -8,9 +8,9 @@ public class Main {
         Vokabel v1 = new Vokabel("Hund", "dog");
         Vokabel v2 = new Vokabel("Katze", "cat");
 
-        ArrayList<Vokabel> vl = new ArrayList();
-        vl.add(v1);
-        vl.add(v2);
+        ArrayList<Vokabel> ar = new ArrayList<Vokabel>();
+        ar.add(v1);
+        ar.add(v2);
 
         System.out.println("Willkommen zum Vokabeltrainer!");
         System.out.println("Neue Vokabel (n), neues Training (t), Statistik (s), Beenden (x)");
@@ -28,21 +28,19 @@ public class Main {
                 System.out.println("Trainingsmodus: Einprägen (1), Abfragen (2), Einprägen teils verdeckt (3)");
                 int modus = Integer.parseInt(sc.next());
 
-                //Vokabel[] vokabeln = vl.get();
-
                 if (modus == 1){
                     TrainingstypLernen t = new TrainingstypLernen();
-                    t.trainiere(vl);
+                    t.trainiere(ar);
                 }
 
                 if(modus == 2){
                     TrainingstypAbfragen t = new TrainingstypAbfragen();
-                    t.trainiere(vl);
+                    t.trainiere(ar);
                 }
 
                 if (modus == 3){
                     TrainingstypBuchstaben t = new TrainingstypBuchstaben();
-                    t.trainiere(vl);
+                    t.trainiere(ar);
                 }
 
             }
@@ -56,12 +54,12 @@ public class Main {
                 String ve = sc.next();
 
                 Vokabel v = new Vokabel(vd, ve);
-                vl.add(v);
+                ar.add(v);
             }
 
             if(eingabe.equals("s")){
-                for (int i = 0; i <= vl.size() - 1; i++) {
-                    Vokabel v = vl.get(i);
+                for (int i = 0; i <= ar.size() - 1; i++) {
+                    Vokabel v = ar.get(i);
                     System.out.println(v.getVokabelDeutsch() + " - " + v.getVokabelEnglisch() + " - " + v.getVokabelStatistik().getErfolgsquote() );
                     System.out.println("Letztes Trainingsdatum: " + v.getVokabelStatistik().getTraingsdatum());
                     System.out.println("Letzte Erfolgsreihe: " + v.getVokabelStatistik().getErfolgsreihe());
