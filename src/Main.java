@@ -1,5 +1,5 @@
 import java.util.Scanner;
-//todo abcd
+
 public class Main {
 
     public static void main(String[] args) {
@@ -62,14 +62,16 @@ public class Main {
                 Vokabel[] vokabeln = vl.getVokabeln();
                 for (int i = 0; i <= vokabeln.length - 1; i++) {
                     Vokabel v = vokabeln[i];
-                    System.out.println(v.getVokabelDeutsch() + " - " + v.getVokabelEnglisch() + " - " + v.getErfolgsquote() );
+                    System.out.println(v.getVokabelDeutsch() + " - " + v.getVokabelEnglisch() + " - " + v.getVokabelStatistik().getErfolgsquote() );
+                    System.out.println("Letztes Trainingsdatum: " + v.getVokabelStatistik().getTraingsdatum());
+                    System.out.println("Letzte Erfolgsreihe: " + v.getVokabelStatistik().getErfolgsreihe());
                 }
             }
 
             System.out.println("Neue Vokabel (n), neues Training (t), Statistik (s), Beenden (x)");
             eingabe = sc.next();
         }
-        System.out.println("Sie haben so viele Runden trainiert: " + v1.getErfolgsquote());
+        System.out.println("Sie haben so viele Runden trainiert: " + v1.getVokabelStatistik().getErfolgsquote());
     }
 
 }

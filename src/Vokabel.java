@@ -19,13 +19,9 @@ public class Vokabel {
     private String vokabel_englisch;
 
 
-    public  void updateTraining(boolean erfolg){
-        vokabelStatistik.updateTraining(erfolg);
-    }
+    public VokabelStatistik getVokabelStatistik(){
 
-    public double getErfolgsquote(){
-        return vokabelStatistik.getErfolgsquote();
+        return this.vokabelStatistik;
     }
-
 
 }
