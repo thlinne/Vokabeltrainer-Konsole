@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TrainingstypAbfragen {
 
-    public void trainiere(Vokabel[] vokabeln){
-        for(int i = 0; i <= vokabeln.length - 1; i++) {
-            Vokabel v = vokabeln[i];
+    public void trainiere(ArrayList<Vokabel> vokabeln){
+        for(int i = 0; i <= vokabeln.size() - 1; i++) {
+            Vokabel v = vokabeln.get(i);
             this.trainiereVokabel(v);
         }
     }
@@ -19,6 +20,7 @@ public class TrainingstypAbfragen {
         if(uebersetzung.equals(v.getVokabelEnglisch())){
             v.getVokabelStatistik().updateTraining(true);
             System.out.println("Das ist richtig");
+
         }else {
             v.getVokabelStatistik().updateTraining(false);
             System.out.println("Das ist falsch!");
