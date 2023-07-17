@@ -10,7 +10,9 @@ public class VokabelStatistik {
     public VokabelStatistik() {
         letztesTraining = LocalDate.now();
     }
-
+//TODO
+// wenn noch keine Trainings gelaufen sind, sollte
+// letztes Training den Wert LocalDate.MIN haben
     public void updateTraining(boolean erfolg) {
         this.anzahl_trainings++;
         if (erfolg) {
