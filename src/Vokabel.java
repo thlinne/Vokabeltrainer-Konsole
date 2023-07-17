@@ -13,12 +13,11 @@ public class Vokabel {
         return this.vokabel_englisch;
     }
 
-    public  void updateAnzahlTrainings(){
+    public  void updateTraining(boolean erfolg){
+        if (erfolg) {
+            this.anzahl_erfolgreich++;
+        }
         this.anzahl_trainings++;
-    }
-
-    public  void updateAnzahlErfolgreich(){
-        this.anzahl_erfolgreich++;
     }
 
     public double getErfolgsquote(){
