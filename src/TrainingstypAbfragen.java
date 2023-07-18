@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TrainingstypAbfragen {
+public class TrainingstypAbfragen implements Trainingstyp{
 
     public void trainiere(ArrayList<Vokabel> vokabeln){
         for(int i = 0; i <= vokabeln.size() - 1; i++) {

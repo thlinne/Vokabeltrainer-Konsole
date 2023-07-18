@@ -25,24 +25,26 @@ public class Main {
 
             if (eingabe.equals("t")) {
 
-                System.out.println("Trainingsmodus: Einprägen (1), Abfragen (2), Einprägen teils verdeckt (3)");
+                System.out.println("Trainingsmodus: Einprägen (1), Abfragen (2), Einprägen teils verdeckt (3), Lustig (4)");
                 int modus = Integer.parseInt(sc.next());
 
+                Trainingstyp t = new TrainingstypAbfragen();
                 if (modus == 1){
-                    TrainingstypLernen t = new TrainingstypLernen();
-                    t.trainiere(ar);
+                    t = new TrainingstypLernen();
                 }
 
                 if(modus == 2){
-                    TrainingstypAbfragen t = new TrainingstypAbfragen();
-                    t.trainiere(ar);
+                    t = new TrainingstypAbfragen();
                 }
 
                 if (modus == 3){
-                    TrainingstypBuchstaben t = new TrainingstypBuchstaben();
-                    t.trainiere(ar);
+                    t = new TrainingstypBuchstaben();
                 }
 
+                if(modus==4){
+                    t = new TrainingstypLustig();
+                }
+                t.trainiere(ar);
             }
 
             if (eingabe.equals("n")) {
