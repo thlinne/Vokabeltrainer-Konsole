@@ -4,19 +4,7 @@ import java.util.Scanner;
 
 public class TrainingstypAbfragen extends TrainingstypBasis{
 
-    public void trainiere(ArrayList<Vokabel> vokabeln){
-
-        if(this.comparator != null) {
-            vokabeln.sort(this.comparator);
-        }
-
-        for(int i = 0; i <= vokabeln.size() - 1; i++) {
-            Vokabel v = vokabeln.get(i);
-            this.trainiereVokabel(v);
-        }
-    }
-
-    private void trainiereVokabel(Vokabel v){
+    protected void trainiereVokabel(Vokabel v){
         Scanner sc = new Scanner(System.in);
 
         System.out.println(v.getVokabelDeutsch());
