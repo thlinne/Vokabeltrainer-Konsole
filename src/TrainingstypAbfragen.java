@@ -1,9 +1,15 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
-public class TrainingstypAbfragen implements Trainingstyp{
+public class TrainingstypAbfragen extends TrainingstypBasis{
 
     public void trainiere(ArrayList<Vokabel> vokabeln){
+
+        if(this.comparator != null) {
+            vokabeln.sort(this.comparator);
+        }
+
         for(int i = 0; i <= vokabeln.size() - 1; i++) {
             Vokabel v = vokabeln.get(i);
             this.trainiereVokabel(v);

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -12,8 +13,11 @@ public class Main {
         ar.add(v1);
         ar.add(v2);
 
+        String NutzerAuswahl = "Neue Vokabel (n), neues Training (t), Statistik (s), Beenden (x)";
+        String NutzerAuswahlTrainingsmodus = "Trainingsmodus: Einprägen (1), Abfragen (2), Einprägen teils verdeckt (3), Lustig (4)";
+
         System.out.println("Willkommen zum Vokabeltrainer!");
-        System.out.println("Neue Vokabel (n), neues Training (t), Statistik (s), Beenden (x)");
+        System.out.println(NutzerAuswahl);
 
         String eingabe;
 
@@ -25,8 +29,11 @@ public class Main {
 
             if (eingabe.equals("t")) {
 
-                System.out.println("Trainingsmodus: Einprägen (1), Abfragen (2), Einprägen teils verdeckt (3), Lustig (4)");
+                System.out.println(NutzerAuswahlTrainingsmodus);
                 int modus = Integer.parseInt(sc.next());
+
+                Comparator<Vokabel> comparator = new ComparatorErfolgsquote();
+
 
                 Trainingstyp t = new TrainingstypAbfragen();
                 if (modus == 1){
@@ -44,7 +51,9 @@ public class Main {
                 if(modus==4){
                     t = new TrainingstypLustig();
                 }
-                t.trainiere(ar);
+
+                t.setComparator(comparator);
+                trainiere(ar, t);
             }
 
             if (eingabe.equals("n")) {
@@ -72,6 +81,14 @@ public class Main {
             eingabe = sc.next();
         }
         System.out.println("Sie haben so viele Runden trainiert: " + v1.getVokabelStatistik().getErfolgsquote());
+    }
+
+    private static void trainiere(ArrayList<Vokabel> ar, Trainingstyp t) {
+        long start = System.currentTimeMillis();
+        t.trainiere(ar);
+        long ende = System.currentTimeMillis();
+        long dauer = ende - start;
+        System.out.println("Du hast " + dauer + " ms benötigt!");
     }
 
 }
