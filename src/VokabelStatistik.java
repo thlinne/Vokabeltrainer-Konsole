@@ -4,7 +4,7 @@ public class VokabelStatistik {
     private int anzahl_trainings = 0;
     private int anzahl_erfolgreich = 0;
     private int anzahlLetzteErfolgsreihe = 0;
-    private LocalDate letztesTraining;
+    private LocalDate letztesTraining= LocalDate.MIN;
 
 
     public VokabelStatistik() {
@@ -31,8 +31,8 @@ public class VokabelStatistik {
         }
     }
 
-    public String getTraingsdatum(){
-        return this.letztesTraining.toString();
+    public LocalDate getTraingsdatum(){
+        return this.letztesTraining;
     }
 
     public int getErfolgsreihe(){
