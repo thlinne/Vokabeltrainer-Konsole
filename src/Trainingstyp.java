@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public interface Trainingstyp {
+public interface Trainingstyp<T extends Ausdruck> {
 
-    void setComparator(Comparator<? super Vokabel> c);
+    void setComparator(Comparator<? super T> c);
 
-    void trainiere(ArrayList<Vokabel> vl);
+    void trainiere(ArrayList<T> vl);
 
 }

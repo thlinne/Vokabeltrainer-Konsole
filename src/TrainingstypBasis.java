@@ -1,29 +1,29 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public abstract class TrainingstypBasis  implements Trainingstyp{
+public abstract class TrainingstypBasis<T extends Ausdruck>  implements Trainingstyp<T>{
 
 //    public TrainingstypBasis(Comparator comparator){
 //
 //    }
 
-    protected Comparator<? super Vokabel> comparator;
+    protected Comparator<? super T> comparator;
 
-    public  void setComparator(Comparator<? super Vokabel> c){
+    public  void setComparator(Comparator<? super T> c){
         this.comparator = c;
     }
 
-    public void trainiere(ArrayList<Vokabel> vokabeln){
+    public void trainiere(ArrayList<T> vokabeln){
 
         if(this.comparator != null) {
             vokabeln.sort(this.comparator);
         }
 
         for (int i = 0; i <= vokabeln.size() - 1; i++) {
-            Vokabel v = vokabeln.get(i);
-            trainiereVokabel(v);
+            T v = vokabeln.get(i);
+            trainiereAusdruck(v);
         }
     }
 
-    protected abstract void trainiereVokabel(Vokabel vokabel);
+    protected abstract void trainiereAusdruck(T a);
 }

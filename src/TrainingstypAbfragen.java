@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class TrainingstypAbfragen extends TrainingstypBasis{
+public class TrainingstypAbfragen extends TrainingstypBasis<Vokabel>{
 
-    protected void trainiereVokabel(Vokabel v){
+    protected void trainiereAusdruck(Vokabel v){
         Scanner sc = new Scanner(System.in);
 
         System.out.println(v.getText());

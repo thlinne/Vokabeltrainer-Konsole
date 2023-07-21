@@ -6,9 +6,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Ausdruck a1 = new Ausdruck("Fisch");
-        Ausdruck a2 = new Vokabel("Fisch", "fish");
+        //Ausdruck a1 = new Ausdruck("Fisch");
+        //Ausdruck a2 = new Vokabel("Fisch", "fish");
 
+        Ausdruck a1 = new Ausdruck("ausruhen");
+        Ausdruck s1 = new Ausdruck("erholen");
+        Vokabel s2 = new Vokabel("entspannen", "relax");
+
+        ArrayList<Ausdruck> synonyme = new ArrayList();
+        synonyme.add(s1);
+        synonyme.add(s2);
+        a1.addSynonyme(synonyme);
+
+        Vokabel s3 = new Vokabel("rumhängen", "hang out");
+        Vokabel s4 = new Vokabel("abhängen", "hang out");
+        ArrayList<Vokabel> synonyme2 = new ArrayList<>();
+        synonyme.add(s3);
+        synonyme.add(s4);
+
+        a1.addSynonyme(synonyme2);
+
+
+        /*********************************************************************/
         String a2_text = a2.getText();
         System.out.println(a2_text);
 
@@ -41,7 +60,7 @@ public class Main {
                 //Comparator<Vokabel> comparator = new ComparatorErfolgsquote();
                 Comparator<Ausdruck> comparator = new ComparatorText();
 
-                Trainingstyp t = new TrainingstypAbfragen();
+                Trainingstyp<Vokabel> t = new TrainingstypAbfragen();
                 if (modus == 1){
                     t = new TrainingstypLernen();
                 }
@@ -89,12 +108,11 @@ public class Main {
         System.out.println("Sie haben so viele Runden trainiert: " + v1.getStatistik().getErfolgsquote());
     }
 
-    private static void trainiere(ArrayList<Vokabel> ar, Trainingstyp t) {
+    private static void trainiere(ArrayList<Vokabel> ar, Trainingstyp<Vokabel> t) {
         long start = System.currentTimeMillis();
         t.trainiere(ar);
         long ende = System.currentTimeMillis();
         long dauer = ende - start;
         System.out.println("Du hast " + dauer + " ms benötigt!");
     }
-
 }
