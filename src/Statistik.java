@@ -1,13 +1,13 @@
 import java.time.LocalDate;
 
-public class VokabelStatistik {
+public class Statistik {
     private int anzahl_trainings = 0;
     private int anzahl_erfolgreich = 0;
     private int anzahlLetzteErfolgsreihe = 0;
     private LocalDate letztesTraining= LocalDate.MIN;
 
 
-    public VokabelStatistik() {
+    public Statistik() {
         letztesTraining = LocalDate.now();
     }
 //TODO

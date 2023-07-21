@@ -3,13 +3,13 @@ import java.util.Comparator;
 
 public abstract class TrainingstypBasis  implements Trainingstyp{
 
-    public TrainingstypBasis(Comparator comparator){
+//    public TrainingstypBasis(Comparator comparator){
+//
+//    }
 
-    }
+    protected Comparator<? super Vokabel> comparator;
 
-    protected Comparator<Vokabel> comparator;
-
-    public  void setComparator(Comparator<Vokabel> c){
+    public  void setComparator(Comparator<? super Vokabel> c){
         this.comparator = c;
     }
 

@@ -3,7 +3,7 @@ import java.util.Comparator;
 
 public interface Trainingstyp {
 
-    void setComparator(Comparator<Vokabel> c);
+    void setComparator(Comparator<? super Vokabel> c);
 
     void trainiere(ArrayList<Vokabel> vl);
 

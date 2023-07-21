@@ -1,27 +1,17 @@
-public class Vokabel {
+public class Vokabel extends Ausdruck {
 
-    private VokabelStatistik vokabelStatistik = new VokabelStatistik();
-
-    public Vokabel(String vokabel_deutsch, String vokabel_englisch){
-        this.vokabel_deutsch = vokabel_deutsch;
-        this.vokabel_englisch = vokabel_englisch;
+    public Vokabel(String text, String translation){
+        super(text);
+        this.translation = translation;
     }
 
-    public String getVokabelDeutsch(){
-        return this.vokabel_deutsch;
+    public String getTranslation(){
+        return this.translation;
     }
 
-    public String getVokabelEnglisch(){
-        return this.vokabel_englisch;
+    public String getText(){
+        return super.getText() + " :-)";
     }
 
-    private String vokabel_deutsch;
-    private String vokabel_englisch;
-
-
-    public VokabelStatistik getVokabelStatistik(){
-
-        return this.vokabelStatistik;
-    }
-
+    private String translation;
 }

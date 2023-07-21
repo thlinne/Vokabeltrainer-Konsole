@@ -6,6 +6,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Ausdruck a1 = new Ausdruck("Fisch");
+        Ausdruck a2 = new Vokabel("Fisch", "fish");
+
+        String a2_text = a2.getText();
+        System.out.println(a2_text);
+
         Vokabel v1 = new Vokabel("Hund", "dog");
         Vokabel v2 = new Vokabel("Katze", "cat");
 
@@ -32,8 +38,8 @@ public class Main {
                 System.out.println(NutzerAuswahlTrainingsmodus);
                 int modus = Integer.parseInt(sc.next());
 
-                Comparator<Vokabel> comparator = new ComparatorErfolgsquote();
-
+                //Comparator<Vokabel> comparator = new ComparatorErfolgsquote();
+                Comparator<Ausdruck> comparator = new ComparatorText();
 
                 Trainingstyp t = new TrainingstypAbfragen();
                 if (modus == 1){
@@ -71,16 +77,16 @@ public class Main {
             if(eingabe.equals("s")){
                 for (int i = 0; i <= ar.size() - 1; i++) {
                     Vokabel v = ar.get(i);
-                    System.out.println(v.getVokabelDeutsch() + " - " + v.getVokabelEnglisch() + " - " + v.getVokabelStatistik().getErfolgsquote() );
-                    System.out.println("Letztes Trainingsdatum: " + v.getVokabelStatistik().getTraingsdatum());
-                    System.out.println("Letzte Erfolgsreihe: " + v.getVokabelStatistik().getErfolgsreihe());
+                    System.out.println(v.getText() + " - " + v.getTranslation() + " - " + v.getStatistik().getErfolgsquote() );
+                    System.out.println("Letztes Trainingsdatum: " + v.getStatistik().getTraingsdatum());
+                    System.out.println("Letzte Erfolgsreihe: " + v.getStatistik().getErfolgsreihe());
                 }
             }
 
             System.out.println("Neue Vokabel (n), neues Training (t), Statistik (s), Beenden (x)");
             eingabe = sc.next();
         }
-        System.out.println("Sie haben so viele Runden trainiert: " + v1.getVokabelStatistik().getErfolgsquote());
+        System.out.println("Sie haben so viele Runden trainiert: " + v1.getStatistik().getErfolgsquote());
     }
 
     private static void trainiere(ArrayList<Vokabel> ar, Trainingstyp t) {

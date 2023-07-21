@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Scanner;
 
 public class TrainingstypBuchstaben extends TrainingstypBasis{
@@ -7,9 +5,9 @@ public class TrainingstypBuchstaben extends TrainingstypBasis{
     @Override
     protected void trainiereVokabel(Vokabel v) {
         Scanner sc = new Scanner(System.in);
-        String z = this.processString( v.getVokabelEnglisch());
+        String z = this.processString( v.getTranslation());
 
-        System.out.println(v.getVokabelDeutsch() + " - " + z);
+        System.out.println(v.getText() + " - " + z);
 
         System.out.println("Weiter mit Enter");
         sc.nextLine();
