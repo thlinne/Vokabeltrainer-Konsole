@@ -1,3 +1,5 @@
+package training;
+
 import java.time.LocalDate;
 
 public class Statistik {

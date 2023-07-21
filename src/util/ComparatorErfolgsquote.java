@@ -1,3 +1,7 @@
+package util;
+
+import linguistik.Vokabel;
+
 import java.util.Comparator;
 
 public class ComparatorErfolgsquote implements Comparator<Vokabel> {

@@ -1,3 +1,7 @@
+package linguistik;
+
+import linguistik.Ausdruck;
+
 public class Vokabel extends Ausdruck {
 
     public Vokabel(String text, String translation){

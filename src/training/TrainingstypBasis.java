@@ -1,9 +1,13 @@
+package training;
+
+import linguistik.Ausdruck;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
 public abstract class TrainingstypBasis<T extends Ausdruck>  implements Trainingstyp<T>{
 
-//    public TrainingstypBasis(Comparator comparator){
+//    public training.TrainingstypBasis(Comparator comparator){
 //
 //    }
 

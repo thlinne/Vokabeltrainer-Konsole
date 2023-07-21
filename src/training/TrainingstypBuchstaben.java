@@ -1,6 +1,9 @@
+package training;
+
+import linguistik.Vokabel;
 import java.util.Scanner;
 
-public class TrainingstypBuchstaben extends TrainingstypBasis{
+public class TrainingstypBuchstaben extends TrainingstypBasis<Vokabel>{
 
     @Override
     protected void trainiereVokabel(Vokabel v) {
@@ -17,7 +20,7 @@ public class TrainingstypBuchstaben extends TrainingstypBasis{
         char[] c =  sin.toCharArray();
         int  laenge = c.length;
         String filler = "***************************".substring(0, laenge - 2);
-        String sout = c[0] + filler + c[c.length-1];
-        return sout;
+        return c[0] + filler + c[c.length-1];
     }
+
 }

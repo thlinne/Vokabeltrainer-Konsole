@@ -1,5 +1,6 @@
-import java.util.ArrayList;
-import java.util.Comparator;
+package training;
+
+import linguistik.Vokabel;
 
 public class TrainingstypLustig extends TrainingstypBasis<Vokabel>{
 

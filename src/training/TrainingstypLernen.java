@@ -1,3 +1,7 @@
+package training;
+
+import linguistik.Vokabel;
+
 import java.util.Scanner;
 
 public class TrainingstypLernen extends TrainingstypBasis<Vokabel>{

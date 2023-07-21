@@ -1,3 +1,7 @@
+package training;
+
+import linguistik.Ausdruck;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 

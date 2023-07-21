@@ -1,3 +1,7 @@
+package util;
+
+import linguistik.Vokabel;
+
 import java.util.Comparator;
 
 public class ComparatorTrainingsdatum implements Comparator<Vokabel> {
