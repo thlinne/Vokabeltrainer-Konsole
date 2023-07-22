@@ -1,7 +1,6 @@
 package util;
 
 import linguistik.Ausdruck;
-
 import java.util.Comparator;
 
 public class ComparatorText implements Comparator<Ausdruck> {

@@ -3,6 +3,8 @@ import linguistik.Sprache;
 import linguistik.Vokabel;
 import training.*;
 import util.ComparatorText;
+import util.ComparatorTrainingsdatum;
+import util.Sortierung;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,6 +16,9 @@ public class Main {
 
         //linguistik.Ausdruck a1 = new linguistik.Ausdruck("Fisch");
         //linguistik.Ausdruck a2 = new linguistik.Vokabel("Fisch", "fish");
+        Sortierung sortierung = Sortierung.DSC;
+
+        Comparator<Vokabel> comparator = new ComparatorTrainingsdatum();
 
         Ausdruck a1 = new Ausdruck("ausruhen");
         a1.setSprache(Sprache.DE);
