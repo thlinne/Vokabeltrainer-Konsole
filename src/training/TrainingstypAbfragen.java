@@ -12,7 +12,7 @@ public class TrainingstypAbfragen extends TrainingstypBasis<Vokabel>{
         System.out.println("Gib die Übersetzung ein:");
         String uebersetzung = sc.next();
 
-        if(uebersetzung.equals(v.getTranslation())){
+        if(uebersetzung.equals(v.getTranslation().getText())){
             v.getStatistik().updateTraining(true);
             System.out.println("Das ist richtig");
 

@@ -9,14 +9,17 @@ public class Ausdruck {
     private Statistik statistik = new Statistik();
     private ArrayList<Ausdruck> synonyme = new ArrayList();
 
+    public Ausdruck(String text, Sprache s)
+    {
+        this.sprache = s;
+        this.text = text;
+    }
+
     public void addSynonyme(ArrayList<? extends Ausdruck> s){
 
         synonyme.addAll(s);
     }
 
-    public Ausdruck(String text) {
-        this.text = text;
-    }
 
     public String getText() {
         return this.text;

@@ -14,6 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /*
         //linguistik.Ausdruck a1 = new linguistik.Ausdruck("Fisch");
         //linguistik.Ausdruck a2 = new linguistik.Vokabel("Fisch", "fish");
         Sortierung sortierung = Sortierung.DSC;
@@ -40,12 +41,12 @@ public class Main {
         a1.addSynonyme(synonyme2);
 
 
-        /* ********************************************************************/
+        /* ******************************************************************* */
         //String a2_text = a2.getText();
         //System.out.println(a2_text);
 
-        Vokabel v1 = new Vokabel("Hund", "dog");
-        Vokabel v2 = new Vokabel("Katze", "cat");
+        Vokabel v1 = new Vokabel("Hund", Sprache.DE, new Ausdruck("dog", Sprache.EN));
+        Vokabel v2 = new Vokabel("Katze", Sprache.DE, new Ausdruck("cat",Sprache.EN));
 
         ArrayList<Vokabel> ar = new ArrayList();
         ar.add(v1);
@@ -102,7 +103,7 @@ public class Main {
                 System.out.println("linguistik.Vokabel englisch:");
                 String ve = sc.next();
 
-                Vokabel v = new Vokabel(vd, ve);
+                Vokabel v = new Vokabel(vd, Sprache.DE, new Ausdruck("ve", Sprache.EN));
                 ar.add(v);
             }
 

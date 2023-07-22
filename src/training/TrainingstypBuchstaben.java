@@ -8,7 +8,7 @@ public class TrainingstypBuchstaben extends TrainingstypBasis<Vokabel>{
     @Override
     protected void trainiereVokabel(Vokabel v) {
         Scanner sc = new Scanner(System.in);
-        String z = this.processString( v.getTranslation());
+        String z = this.processString( v.getTranslation().getText());
 
         System.out.println(v.getText() + " - " + z);
 

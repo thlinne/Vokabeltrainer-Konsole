@@ -4,12 +4,12 @@ import linguistik.Ausdruck;
 
 public class Vokabel extends Ausdruck {
 
-    public Vokabel(String text, String translation){
-        super(text);
+    public Vokabel(String text, Sprache s, Ausdruck translation){
+        super(text,s);
         this.translation = translation;
     }
 
-    public String getTranslation(){
+    public Ausdruck getTranslation(){
         return this.translation;
     }
 
@@ -17,5 +17,5 @@ public class Vokabel extends Ausdruck {
         return super.getText() + " :-)";
     }
 
-    private String translation;
+    private Ausdruck translation;
 }
